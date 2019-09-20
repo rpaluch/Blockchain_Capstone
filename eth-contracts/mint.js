@@ -37,13 +37,12 @@ async function main() {
     // Properties issued directly to the owner.
     for (let i = 0; i < NUM_PROPERTIES; i++) {
         if (i < PROPERTY_PROOFS.length) {
-            const tokenId = Math.floor(Math.random() * 10000);
             try {
                 const {proof: {a, b, c}, inputs} = PROPERTY_PROOFS[i];
                 const result = await nftContract.methods.mintToken(
                     i,
                     OWNER_ADDRESS,
-                    tokenId,
+                    i,
                     a,
                     b,
                     c,
